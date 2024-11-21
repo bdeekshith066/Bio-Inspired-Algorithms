@@ -1,0 +1,42 @@
+This code implements the **Ant Colony Optimization (ACO)** algorithm to solve the Traveling Salesman Problem (TSP). Here's a brief explanation of its components:
+
+### Explanation of Code Components:
+
+1. **Initialization:**
+   - The cities are represented as a 2D array of coordinates.
+   - Pheromone levels are initialized uniformly.
+   - Distances between all city pairs are computed using the Euclidean distance formula.
+
+2. **Ants Construct Solutions:**
+   - Each ant starts at a random city and iteratively selects the next city based on:
+     - **Pheromone levels (`tau`)**: Higher levels make the city more attractive.
+     - **Heuristic information (`eta`)**: Inversely proportional to the distance.
+   - The balance between exploitation (choosing the most likely option) and exploration (probabilistic choice) is governed by `q0`.
+
+3. **Updating Pheromones:**
+   - Pheromones evaporate slightly in each iteration (`rho` controls this).
+   - New pheromones are deposited along the paths found by the ants, proportional to the quality of the solutions.
+
+4. **Optimization Loop:**
+   - Iteratively constructs solutions for all ants, updates the pheromones, and tracks the best solution found.
+   - The algorithm stops after a predefined number of iterations (`n_iterations`).
+
+5. **Plotting the Best Solution:**
+   - After optimization, the best tour is plotted to visualize the order of cities visited.
+
+---
+
+### Running the Code:
+1. You can replace the `cities` array with your own set of coordinates.
+2. Adjust parameters (`alpha`, `beta`, `rho`, `q0`, `n_ants`, and `n_iterations`) to tune the algorithm's performance.
+3. The **best solution** and its length will be printed after the optimization loop completes.
+4. The `plot_solution` method visualizes the best tour.
+
+---
+
+### Output Example:
+For the given `cities`:
+- **Best Solution:** `[0, 2, 3, 5, 6, 4, 1, 7, 0]` (may vary depending on randomness).
+- **Best Length:** `XX.XX` (depending on the specific distances).
+
+Feel free to experiment with different parameters and city configurations!
